@@ -1,0 +1,10 @@
+discord
+discord.ext import commands
+asyncio
+time
+discord.voice_client import VoiceClient
+discord.ext.commands
+random
+discord.ext.commands import Bot
+os
+re
