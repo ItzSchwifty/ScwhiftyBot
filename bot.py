@@ -24,11 +24,21 @@ client = commands.Bot(command_prefix = "/")
 bot = commands.Bot(command_prefix='/')
 
 
+api = os.environ["RIOT_KEY"]
+
+@client.event
+async def status_task():
+    while True:
+        await client.change_presence(game=discord.Game(name='/help | Support The Bot', type = 0))
+        await asyncio.sleep(10)
+        await client.change_presence(game=discord.Game(name='/dashboard', type = 0))
+        await asyncio.sleep(10)
+
 @client.event
 async def on_ready():
-     await client.change_presence(game=discord.Game(name='/help | Support The Bot', type = 0))
-     print("Bot is ready!")
-     
+    ...
+    bot.loop.create_task(status_task())
+    print("Connected to Discord")
 
 
 
@@ -45,50 +55,9 @@ class Main_Commands():
 #permissions
 @client.event 
 async def on_message(message):
-        if message.content.upper().startswith("/WARN"):#sym
-                    if message.author.id == "421664761483231232":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#me
-                    if message.author.id == "257324640160972801":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#yuni
-                    if message.author.id == "260255626691739649":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#bxx
-                    if message.author.id == "348682446159609856":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#lemon
-                    if message.author.id == "348442873747734528":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#tender
-                    if message.author.id == "443334562093858846":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-        if message.content.upper().startswith("/WARN"):#chip
-                    if message.author.id == "214006584286642176":
-                          await client.send_message(message.channel, "The user has been warned")
-                          args = message.content.split(" ")
-                          await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
-                    
-#█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████        
+
 #Trivia
+        
         if message.content.upper().startswith("/TRIVIA"):
                     embed = discord.Embed(title="Trivia", description="Try some of these!", color=0)
                     embed.add_field(name="Category", value="These are trivia categories choose one category you like :)", inline=False)
@@ -112,7 +81,7 @@ async def on_message(message):
                     embed.add_field(name="Coming soon", value="...", inline=True)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/GRETURN"):
+        if message.content.upper().startswith("/ARETURN"):
                     embed = discord.Embed(title="Trivia", description="Game Levels", color=0)
                     embed.add_field(name="Levels", value="These are trivia level choose one level you like :)", inline=False)
                     embed.add_field(name="/aone", value="About biggest animal on Earth", inline=True)
@@ -135,22 +104,22 @@ async def on_message(message):
                     await client.send_message(message.channel, embed=embed)
         if message.content.upper().startswith("/1A1"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a1reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
         if message.content.upper().startswith("/1A2"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Correct! ~ Over 200 tons!", value="/greturn so you can play more and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Correct! ~ Over 200 tons!", value="/areturn so you can play more and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
         if message.content.upper().startswith("/1A3"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a1reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
         if message.content.upper().startswith("/1A4"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a1reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
         if message.content.upper().startswith("/A1REVEAL"):
@@ -168,32 +137,34 @@ async def on_message(message):
                     embed.add_field(name="Spinosaurus", value="Do /1a4", inline=True)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/1A1"):
+        if message.content.upper().startswith("/2A1"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a2reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/1A2"):
+        if message.content.upper().startswith("/2A2"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Correct! ~ Over 200 tons!", value="/greturn so you can play more and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Correct! ~ 200+ kmh when diving!", value="/areturn so you can play more and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/1A3"):
+        if message.content.upper().startswith("/2A3"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a2reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/1A4"):
+        if message.content.upper().startswith("/2A4"):
                     embed = discord.Embed(title="Trivia", description="Animals", color=0)
-                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/greturn so you can play more or /g1reveal to reveal the answer and /trivia for the menu", inline=False)
+                    embed.add_field(name=":arrow_forward: Your answer is wrong", value="/areturn so you can play more or /a2reveal to reveal the answer and /trivia for the menu", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-        if message.content.upper().startswith("/A1REVEAL"):
+        if message.content.upper().startswith("/A2REVEAL"):
                     embed = discord.Embed(title="Trivia", description="Answer", color=0)
-                    embed.add_field(name=":arrow_forward: The answer for animal 1 is the Blue Whale", value="Surprised? The Blue Whale is much heavier than any dinosaur", inline=False)
+                    embed.add_field(name=":arrow_forward: The answer for animal 2 is Peregrine Falcon", value="Reaches about 200+ kmh when diving", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
-                                     
+#Animal 3
+        if message.content.upper().startswith("/ATHREE"):
+                    await client.send_message(message.channel, "Oopsie Woopsie We did a fucky wucky. The people at the headquarters are working vewwy hard to fix this OwO")                 
                                      
 #CG
         if message.content.upper().startswith("/GLEVELS"):
@@ -212,12 +183,14 @@ async def on_message(message):
                     embed.add_field(name="Levels", value="These are trivia level choose one level you like :)", inline=False)
                     embed.add_field(name="/gone", value="About the most downloaded game", inline=True)
                     embed.add_field(name="/gtwo", value="About the most money earning game", inline=True)
-                    embed.add_field(name="Coming soon", value="...", inline=True)
+                    embed.add_field(name="/gthree", value="About the most popular game as of 2018", inline=True)
                     embed.add_field(name="Coming soon", value="...", inline=True)
                     embed.add_field(name="Coming soon", value="...", inline=True)
                     embed.add_field(name="Coming soon", value="...", inline=True)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
+        
+        
 #Game 1
         if message.content.upper().startswith("/GONE"):
                     embed = discord.Embed(title="Trivia", description="Pick an answer by putting the command", color=0)
@@ -355,7 +328,7 @@ async def on_message(message):
         if message.content.upper().startswith("/SUPPORT"):
                     await client.send_message(message.channel, "Heres the server :) https://discord.gg/2ga7k6r")
         if message.content.upper().startswith("/PLAY"):
-                    await client.send_message(message.channel, "**Awaiting Data...**")  
+                    await client.send_message(message.channel, "**Searching :mag_right: (This could take up to 15 seconds)...**")  
         if message.content.upper().startswith("/PING"):
                     userID = message.author.id       
                     await client.send_message(message.channel, "<@%s> Pong! :ping_pong:" % (userID))
@@ -374,7 +347,7 @@ async def on_message(message):
         if message.content.upper().startswith("/DASHBOARD"):
                     await client.send_message(message.channel, "http://schwiftybot.website2.me/")
         if message.content.upper().startswith("/VERSION"):
-                    await client.send_message(message.channel, "The versions has been sent to you through DMs *Slides in*")
+                    await client.send_message(message.channel, ":mailbox_with_mail:  The versions has been sent to you through DMs *Slides in*")
                     embed=discord.Embed(title="SchwiftyBot", url="http://schwiftybot.website2.me/", description="Note: The version command is relatively new so data before the command would not be processed", color=0)
                     embed.add_field(name="1.0.0", value="Added embedded /help text (5/7/18)", inline=False)
                     embed.add_field(name="1.1.0", value="Added version (5/8/18)", inline=False)
@@ -391,6 +364,8 @@ async def on_message(message):
                     embed.add_field(name="2.0.2", value="Created a trivia command /trivia (5/20/18)", inline=False)
                     embed.add_field(name="2.1.2", value="Created a trivia command /trivia (5/20/18)", inline=False)
                     embed.add_field(name="2.1.3", value="Improved ship command and shoot(5/21/18)", inline=False)
+                    embed.add_field(name="2.2.3", value="Added category animals and more(5/23/18)", inline=False)
+                    embed.add_field(name="2.2.4", value="Improved warn command(5/23/18)", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.author, embed=embed)
         if message.content.upper().startswith("/8BALL"):
@@ -600,6 +575,7 @@ async def on_message(message):
        
        
 
+        
 
 
         if message.content.upper().startswith('/HELP'):
@@ -607,17 +583,58 @@ async def on_message(message):
                     embed.set_author(name="SchwiftyBot", url="http://schwiftybot.website2.me", icon_url="https://cdn.discordapp.com/attachments/323726246116589570/443672159064162314/Cabbage.jpg")
                     embed.add_field(name=":arrow_forward: Dashboard :cookie:", value="/help (Gives you the command lists)                                                                                                                                   /info (Gives you info about the bot and commands)                                                                                            /reposit (A good look inside the bot)                                                                                                                        /botinv (Invites the bot into your server)                                                                                           /version (Gives you the bot's version)                                                                                                              /dashboard (Gives you the bot's dashboard)                                                                                                                                  /support (Gives you to server's invite link for the owner's server)" , inline=False)
                     embed.add_field(name=":arrow_forward: Entertainment :video_game:", value="/8ball (Ohhh whats this?)                                                                                                       /trivia (Gives you questions to answer)                                                                                                                                                                                                         /avatar (Gives you your own profile picture)                                                                                                                    /coinflip (Flips a coin)                                                                                                                                                /ping (Pong!)                                                                                                                       /shoot <@user>(Shoot someone)                                                                                             /ship <@user> (Ship people and yourself cx)" , inline=False)
-                    embed.add_field(name=":arrow_forward: Moderation :hotsprings:", value="/warn (Warns a member Only works if you have an admin role STILL WIP)", inline=False)
+                    embed.add_field(name=":arrow_forward: Moderation :hotsprings:", value="/warn (Warns a member Request Schwifty#7692 for this command)", inline=False)
                     embed.add_field(name=":arrow_forward: Music :headphones:", value="/id <@user> <reason> (Gives your own ID)                                                                                       /play <song> (Plays the song)(Be in a voice chat first)                                                                       /queue (Gives the song list(s))                                                                                           /search (Enable you to search some stuff)                                                                                     /skip (Skips the song playing right now)                                                                                          /summon (Summons the bot) (CONNECT TO A VOICE CHANNEL)                                                                                               /clean (Cleans the entire queue)                                                                                                                                                   /perms (Shows you the permissions)", inline=False)
                     embed.add_field(name=":arrow_forward: Games :game_die:", value="/rlinks (Shows you the newest diep.io sanbox links)                                                                                                /tf2 (Gives you the website)", inline=False)
                     embed.set_footer(text='Support The Bot | SchwiftyBot ')
                     await client.send_message(message.channel, embed=embed)
                     os.system('cls' if os.name=='nt' else 'clear')
 
-@client.event
-async def on_reaction_remove(reaction, user):
-     channel = reaction.message.channel
-     await client.send_message(message.channel, "{} has removed {} from the message: {}".format(user.name, reaction.emoji, reaction.message.content))
+        if message.content.upper().startswith('/WARN'):#mod
+               if "443294492712501278" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed)  
+                    
+        if message.content.upper().startswith('/WARN'):#moderator
+               if "306340240262692864" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed) 
+                    
+        if message.content.upper().startswith('/WARN'):#comod
+               if "306345212941434883" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed) 
+                    
+        if message.content.upper().startswith('/WARN'):#staff
+               if "311393993445474304" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed) 
+                    
+        if message.content.upper().startswith('/WARN'):#t staff
+               if "413954601096577025" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed) 
+                    
+        if message.content.upper().startswith('/WARN'):#mod
+               if "373965771585617920" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed) 
+                    
+        if message.content.upper().startswith('/WARN'):#vintage
+               if "443338272416989184" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
+                    args = message.content.split(" ")
+                    embed = discord.Embed(title="You warned the user", description="%s" % (" ".join(args[1:])), color=0)
+                    await client.send_message(message.channel, embed=embed)
+
+
+
+
 
 
 
@@ -643,5 +660,5 @@ async def on_reaction_remove(reaction, user):
  
 
           
-client.run("token")
+client.run("NDM4NjUyMzUyMzM4MTk4NTM4.DcHw8g.biB7ZgXREEZt3M-Ccg4MYf9CHmU")
 
