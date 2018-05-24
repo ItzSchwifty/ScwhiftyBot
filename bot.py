@@ -660,5 +660,5 @@ async def on_message(message):
  
 
           
-client.run("NDM4NjUyMzUyMzM4MTk4NTM4.DcHw8g.biB7ZgXREEZt3M-Ccg4MYf9CHmU")
+client.run(str(os.environ.get("NDM4NjUyMzUyMzM4MTk4NTM4.DcHw8g.biB7ZgXREEZt3M-Ccg4MYf9CHmU")))
 
